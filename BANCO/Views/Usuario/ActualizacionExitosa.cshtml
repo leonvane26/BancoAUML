@@ -1,0 +1,19 @@
+﻿@model BANCO.Models.Usuario
+
+<h2>Actualización de Datos exitosa</h2>
+
+<p>Tus datos se han actualizado exitosamente</p>
+<table class="table">
+    <tr>
+        <th>Usuario</th>
+        <th>Telefono</th>
+        <th>Correo Electronico</th>
+    </tr>
+    <tr>
+        <td>@Model.Username</td>
+        <td>@Model.Telefono</td>
+        <td>@Model.CorreoElectronico</td>
+    </tr>
+
+</table>
+<a asp-action="ResumenCuenta" asp-controller="Cuentas" class="btn btn-primary">Regresar al Resumen de cuenta</a>

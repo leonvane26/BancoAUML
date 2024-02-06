@@ -1,0 +1,41 @@
+﻿<h2>Acceso Denegado</h2>
+
+<p>Debes esperar <span id="countdown"></span> segundos antes de volver a intentarlo.</p>
+
+
+<a asp-action="ResumenCuenta" asp-controller="Cuentas" class="btn btn-primary">Volver al resumen de cuenta</a>
+
+
+@section Scripts {
+    <script>
+        // Función para realizar el conteo regresivo
+        function startCountdown(seconds) {
+            // Obtener el elemento de tiempo restante
+            var countdownElement = document.getElementById("countdown");
+
+            // Mostrar el tiempo inicial
+            countdownElement.innerText = seconds;
+
+            // Iniciar el intervalo de tiempo
+            var countdownInterval = setInterval(function () {
+                seconds--;
+
+                // Actualizar el tiempo restante
+                countdownElement.innerText = seconds;
+
+                // Verificar si se ha completado el tiempo de espera
+                if (seconds <= 0) {
+                    clearInterval(countdownInterval);
+                    // Redirigir a la página de inicio de sesión
+                    window.location.href = "InicioSesion";
+                }
+            }, 1000);
+        }
+
+        // Iniciar el temporizador cuando se cargue la página
+        window.onload = function () {
+            var tiempoEspera = @ViewBag.TiempoEspera; // Obtener el tiempo de espera desde ViewBag
+            startCountdown(tiempoEspera);
+        };
+    </script>
+}

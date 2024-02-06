@@ -1,0 +1,232 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="BANCO AUML">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <title>Prueba Index</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/templatemo-chain-app-dev.css">
+    <link rel="stylesheet" href="assets/css/animated.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+
+</head>
+
+<body>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a class="logo">
+                            <img src="assets/images/logo.png" width="96" height="45" alt="Banco AUML">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="#top" class="active">Inicio</a></li>
+                            <li class="scroll-to-section"><a href="#services">E-Banca</a></li>
+                            <li class="scroll-to-section"><a href="#about">Sobre Nosotros</a></li>
+                            <li><div class="gradient-button"><a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="InicioSesion"><i class="fa fa-sign-in-alt"></i>Iniciar Sesion</a></div></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center">
+                            <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h2>E-BANCA AUML</h2>
+                                        <p>
+                                            Realiza todas tus transacciones y pagos, desde cualquier lugar y en el momento que lo necesites de forma fácil y segura desde tu e-banca AUML..
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="white-button scroll-to-section">
+                                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Registro">Registrarse <i class="fa fa-sign-in-alt"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                                <img src="assets/images/slider-dec.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="services" class="services section">
+        <div class="container d-flex justify-content-center">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <h4>e-banca AUML llena de <em>beneficios</em> para ti</h4>
+                        <img src="assets/images/heading-line-dec.png" alt="">
+                        <p>Todo lo que tardarias en el banco al alcance de un clic sin necesidad de salir de tu casa!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="service-item first-service">
+                        <div class="icon"></div>
+                        <h4>Interfaz simplificada</h4>
+                        <p>La e-banca cuenta con una interfaz simplificada que hace más fácil realizar operaciones con tus cuentas.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="service-item second-service">
+                        <div class="icon"></div>
+                        <h4>Ambiente comodo</h4>
+                        <p>Dedicamos cada detalle para que no tengas problemas en encontrar todo lo que necesitas</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="service-item third-service">
+                        <div class="icon"></div>
+                        <h4>Ayuda y asistencia</h4>
+                        <p>Puedes contactarte con nosotros por nuestro numero de asistencia o en cualquiera de nuestras redes sociales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="about" class="about-us section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 align-self-center">
+                    <div class="section-heading">
+                        <h4>Sobre <em>Nosotros</em></h4>
+                        <img src="assets/images/heading-line-dec.png" alt="">
+                        <p>Somos el principal aliado de nuestros clientes en la satisfacción de sus necesidades financieras, con productos innovadores y un elevado nivel de eficiencia y servicio, a través de un equipo comprometido, motivado y de alto desempeño. Generamos valor para nuestros clientes, colaboradores, accionistas y la comunidad.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="box-item">
+                                <h4><a href="#">Compromiso</a></h4>
+                                <p>Comprometidos a brindar servicios confiables y éticos, cumpliendo con las expectativas de los clientes y manteniendo altos estándares de calidad.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="box-item">
+                                <h4><a href="#">Excelencia del servicio</a></h4>
+                                <p>Nos esforzamos por ofrecer una experiencia excepcional a nuestros clientes, brindando atención personalizada y resolviendo problemas eficientemente.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="box-item">
+                                <h4><a href="#">Innovacion</a></h4>
+                                <p>Nos adaptamos contigo desarrollando productos y servicios financieros innovadores y ofreciendo soluciones tecnológicas avanzadas.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="box-item">
+                                <h4><a href="#">Seguridad</a></h4>
+                                <p>La protección de los activos financieros y datos de los clientes por medio de una seguridad robusta y cumpliendo con normativas de seguridad financiera.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <p>“Ser un banco moderno, sostenible y accesible a todos los salvadoreños, que ofrece una experiencia de servicio cercana y de calidad a sus clientes y usuarios”.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-image">
+                        <img src="assets/images/about-right-dec.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="newsletter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer-widget">
+                        <h4>Contáctanos</h4>
+                        <p>El Salvador - ESV, 22795-008, El Salvador</p>
+                        <p><a href="#">010-020-0340</a></p>
+                        <p><a href="#">info@bancoauml.co.sv</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-widget">
+                        <h4>Sobre Nosotros</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Sobre Nosotros</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-widget">
+                        <h4>Banco AUML </h4>
+                        <div class="logo">
+                            <img src="assets/images/white-logo.png" alt="">
+                        </div>
+                        <p>Nuestro compromiso es brindar servicios financieros confiables y seguros</p>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <p>
+                            Copyright © 2023 Banco AUML.Todos los derechos reservados.
+                            <br>Design: <a href="https://templatemo.com/" target="_blank" title="css templates">TemplateMo</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/animation.js"></script>
+    <script src="assets/js/imagesloaded.js"></script>
+    <script src="assets/js/popup.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+</html>

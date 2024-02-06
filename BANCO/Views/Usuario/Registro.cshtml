@@ -1,0 +1,107 @@
+﻿@model BANCO.Models.Usuario
+
+@{
+    Layout = "_IngresoLayout";
+    ViewData["Title"] = "Registro";
+}
+
+<h1>Crear usuario e-banca AUML</h1>
+<h4>
+    Gracias por registrarse con nosotros! Ahora todo sera mas facil y rapido desde tu E-Banca AUML
+</h4>
+<p>Recuerde seguir las indicaciones del personal del banco!</p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Registro">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido" class="control-label"></label>
+                <input asp-for="Apellido" class="form-control" />
+                <span asp-validation-for="Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaNacimiento" class="control-label">Fecha de nacimiento</label>
+                <input asp-for="FechaNacimiento" class="form-control" oninput="AgregaGuion(this)" />
+                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CorreoElectronico" class="control-label">Correo Electronico</label>
+                <input asp-for="CorreoElectronico" class="form-control" />
+                <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DUI" class="control-label"></label>
+                <input asp-for="DUI" class="form-control" oninput="Guion(this)"/>
+                <span asp-validation-for="DUI" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" oninput="agregarGuion(this)" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Direccion" class="control-label">Direccion de residencia actual</label>
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label">Usuario para ingresar a la e-banca</label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contraseña" class="control-label"></label>
+                <input asp-for="Contraseña" class="form-control" />
+                <span asp-validation-for="Contraseña" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Registrarse" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr />
+<br />
+<div>
+    <p><i>Ya tienes una cuenta?</i> <a asp-action="InicioSesion">Inicia Sesion</a></p>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        function agregarGuion(input) {
+            var telefonoValue = input.value.replace(/\D/g, '');
+            var formattedValue = telefonoValue.slice(0, 4) + "-" + telefonoValue.slice(4, 8);
+
+            input.value = formattedValue;
+        }
+    </script>
+
+    <script>
+        function Guion(input) {
+            var duiValue = input.value.replace(/\D/g, '');
+            var formattedValue = duiValue.slice(0, 8) + "-" + duiValue.slice(8,10);
+
+            input.value = formattedValue;
+        }
+    </script>
+    <script>
+        function AgregaGuion(input) {
+            var fechaValue = input.value.replace(/\D/g, '');
+            var formattedValue = fechaValue.slice(0, 2) + "-" + fechaValue.slice(2, 4) + "-" + fechaValue.slice(4, 8);
+
+            input.value = formattedValue;
+        }
+    </script>
+}

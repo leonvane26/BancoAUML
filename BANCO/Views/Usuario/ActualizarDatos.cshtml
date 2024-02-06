@@ -1,0 +1,51 @@
+﻿@model BANCO.Models.Usuario
+<h1>Manten tu informacion actualizada</h1>
+    
+    <h4>
+    Recuerde seguir las indicaciones del personal del banco!
+    </h4>
+
+
+@using (Html.BeginForm("ActualizarDatos", "Usuario", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+     <div class="form-group">
+        @Html.Label("Nuevo Telefono:")
+        @Html.TextBox("telefono", null, new { @class = "form-control", @id = "telefonoInput", maxlength = "9"})
+        @Html.ValidationMessage("telefono", "", new {@class = "text-danger"})
+    </div>
+    <br/>
+    <div class="form-group">
+        @Html.Label("Nuevo Correo:")
+        @Html.TextBox("correo", null, new { @class = "form-control"})
+        @Html.ValidationMessage("correo", "", new {@class = "text-danger"})
+
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Actualizar Datos</button>
+
+}
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var telefonoInput = document.getElementById("telefonoInput");
+            telefonoInput.addEventListener("input", function() {
+                var telefonoValue = this.value.replace(/\D/g, "");
+                var formattedValue = "";
+                
+                if (telefonoValue.length > 4) {
+                    formattedValue = telefonoValue.slice(0, 4) + "-" + telefonoValue.slice(4);
+                } else {
+                    formattedValue = telefonoValue;
+                }
+                
+                this.value = formattedValue;
+            });
+        });
+    </script>
+
+    }
+

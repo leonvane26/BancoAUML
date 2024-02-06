@@ -1,0 +1,62 @@
+﻿@model PrintPDFModel
+
+@{
+    Layout = "_Layout_pdf";
+}
+
+<h2>Historial de movimientos</h2>
+<br>
+<br />
+@if (Model.Movimientos != null && Model.Movimientos.Count > 0)
+{
+
+
+    <tr>
+        <td>
+            <h4><strong>N° de Cuenta:</strong> @Model.Cuenta.Numero</h4>
+            <br>
+            @*            <div style="display: flex; justify-content: flex-start;">
+        <a asp-action="ResumenCuenta" asp-controller="Cuentas">Volver al resumen de cuenta</a>
+        <a asp-action="HistorialMovimientos" style="margin-left: 25px;">Ver todo</a>
+        </div>*@
+        </td>
+    </tr>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    Fecha
+                </th>
+                <th>
+                    Monto
+                </th>
+                <th>
+                    Tipo
+                </th>
+                @* <th></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movimiento in Model.Movimientos)
+            {
+                <tr>
+                    <td>
+                        @movimiento.Fecha
+                    </td>
+                    <td>
+                        @movimiento.Monto.ToString("C")
+                    </td>
+                    <td>
+                        @movimiento.Tipo
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No se encontraron movimientos.</p>
+}

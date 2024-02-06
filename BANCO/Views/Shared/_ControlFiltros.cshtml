@@ -1,0 +1,74 @@
+﻿<script>
+    function mostrarVistaParcial() {
+        var seleccion = document.getElementById("opciones").value;
+
+        if (seleccion === "opcion1") {
+            document.getElementById("_filtro").style.display = "block";
+            document.getElementById("_filtroBusqueda").style.display = "none";
+        } else {
+            document.getElementById("_filtro").style.display = "none";
+            document.getElementById("_filtroBusqueda").style.display = "block";
+        }
+    }
+</script>
+
+<style>
+    .vista-parcial {
+        display: none;
+    }
+    .custom-select {
+        width: 200px;
+    }
+</style>
+
+<div class="container">
+    <!-- LISTA DESPLEGABLE -->
+    <div class="form-group">
+        <label for="opciones">Filtrar</label>
+        <select id="opciones" class="form-control custom-select" onchange="mostrarVistaParcial() ">
+            <option value="">Seleccionar filtro</option>
+            <option value="opcion1">Por fechas</option>
+            <option value="opcion2">Por cuenta</option>
+        </select>
+    </div>
+
+    <!-- FILTRO POR FECHAS -->
+    <div id="_filtro" class="vista-parcial">
+        <form class="row g-3" method="get" action="">
+            <div class="col-md-3">
+                <label class="form-label">Desde</label>
+                <input type="date" class="form-control" name="fechaDesde" />
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Hasta</label>
+                <input type="date" class="form-control" name="fechaHasta" />
+            </div>
+            <div class="col-md-3" style="text-align: center;">
+                <br />
+                <button type="submit" class="btn btn-primary">Buscar</button>
+                <br><br>
+            </div>
+        </form>
+    </div>
+
+    <!-- FILTRO POR CUENTAS -->
+    <div id="_filtroBusqueda" class="vista-parcial">
+        <form class="row g-3" method="get" action="">
+            <div class="col-md-3">
+                <label>Buscar por número de cuenta:</label>
+                <select class="form-control" name="idCuenta">
+                    <option value="">Seleccione una Cuenta</option>
+                    @foreach (var cuenta in ViewBag.Cuentas as SelectList)
+                    {
+                        <option value="@cuenta.Value">@cuenta.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-3">
+                <br />
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

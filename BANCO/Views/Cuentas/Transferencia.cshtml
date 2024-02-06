@@ -1,0 +1,95 @@
+﻿@model BANCO.Models.Movimiento
+
+@{
+    ViewData["Title"] = "Transferencia";
+}
+
+<h1>Transferencia</h1>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger">@ViewBag.Error</div>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="IdCuentaOrigen">Cuenta de Origen:</label>
+        @Html.DropDownListFor(model => model.IdCuentaOrigen, 
+            new SelectList(ViewBag.Cuentas, "Id", "Numero"),
+            "Seleccione una cuenta", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="Tipo">Tipo de Movimiento:</label>
+        <select name="TipoMov" id="TipoMov" class="form-control" required>
+            @foreach (var tipoMovimiento in ViewBag.TiposMovimiento)
+            {
+                <option value="@tipoMovimiento">@tipoMovimiento</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        
+        <label for="IdCuentaDestino"> Cuenta de Destino:</label>
+        @Html.TextBox("IdCuentaDestino", null, 
+        new { @class = "form-control",
+        placeholder = "Ingrese la cuenta destino" })
+        @Html.ValidationMessage("IdCuentaDestino", "",
+        new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label for="Concepto">Concepto:</label>
+        @Html.TextBoxFor(model => model.Concepto, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="monto">Monto:</label>
+        @Html.TextBoxFor(model => model.Monto, new { @class = "form-control" })
+    </div>
+   
+    <hr />
+    <div class="form-group">
+        <input type="submit" value="Realizar Transferencia" class="btn btn-primary" />
+    </div>
+    
+    
+}
+
+
+@*
+
+<form asp-action="Transferencia" method="post">
+    <div class="form-group">
+        <label for="IdCuentaOrigen">Cuenta de origen:</label>
+        <select class="form-control" id="IdCuentaOrigen" name="IdCuentaOrigen" required>
+            @foreach (var cuenta in ViewBag.Cuentas)
+            {
+                @* @*<option value="@cuenta.Id">@cuenta.Nombre - Saldo: @cuenta.SaldoActual</option>
+                <option value="@cuenta.Id">@cuenta.Numero</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="IdCuentaDestino">Cuenta de destino:</label>
+        <select class="form-control" id="IdCuentaDestino" name="IdCuentaDestino" required>
+            @foreach (var cuenta in ViewBag.Cuentas)
+            {
+                @*<option value="@cuenta.Id">@cuenta.Nombre - Saldo: @cuenta.SaldoActual</option>*@
+                @*<option value="@cuenta.Id">@cuenta.Numero</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="monto">Monto:</label>
+        <input class="form-control" id="monto" name="monto" type="number" step="0.01" required>
+    </div>
+    <div>
+        <label asp-for="Tipo"></label>
+        @Html.DropDownList(
+        "Tipo",Html.GetEnumSelectList<Tipo_Movimiento>(),
+        "Seleccione una cuenta",
+        new{@class = "form-control"})
+    </div>
+    <button type="submit" class="btn btn-primary">Realizar transferencia</button>
+</form>*@

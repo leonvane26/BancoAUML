@@ -1,0 +1,13 @@
+﻿<ul class="navbar-nav">
+    @if (!string.IsNullOrEmpty(ViewBag.Usuario))
+    {
+        <li class="nav-item">
+            <span class="nav-link text-dark"> Bienvenido, @ViewBag.Usuario</span>
+        </li>
+        <li>
+            <form class="form-check-inline" asp-action="CerrarSesion" asp-controller="Usuario">
+                <button class="btn btn-link nav-link text-dark" type="submit">Cerrar Sesión</button>
+            </form>
+        </li>
+    }
+</ul>

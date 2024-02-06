@@ -1,0 +1,51 @@
+﻿@model BANCO.Models.Usuario
+
+@{
+    Layout = "_IngresoLayout";
+    ViewData["Title"] = "Inicio de Sesión";
+}
+
+<h1>Ingresar a la cuenta</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="InicioSesion">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label">Usuario e-banca</label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <label asp-for="Contraseña" class="control-label"></label>
+                <input asp-for="Contraseña" class="form-control" />
+                <span asp-validation-for="Contraseña" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Iniciar Sesión" class="btn btn-primary" />
+            </div>
+        </form>
+
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <div class="text-danger">
+                @ViewBag.Error
+            </div>
+        }
+    </div>
+</div>
+<hr />
+<br />
+<div>
+    <p><i>No tienes una cuenta?</i> <a asp-action="Registro">Registrate</a></p>
+    <p><i><a asp-action="OlvideContraseña">Olvidé mi contraseña</a></i></p>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

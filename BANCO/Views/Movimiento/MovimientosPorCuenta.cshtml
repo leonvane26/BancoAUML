@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BANCO.Models.Movimiento>
+
+<h2>Historial de movimientos</h2>
+<br>
+<div>
+    <partial name="_filtro" />
+</div>
+<br />
+@if (ViewBag.SelectedMovimientos != null && ViewBag.SelectedMovimientos.Count > 0)
+{
+    <tr>
+        <td>
+            <h4><strong>N° de Cuenta:</strong> @ViewBag.SelectedCuenta.Numero</h4>
+            <br>
+            <div style="display: flex; justify-content: flex-start;">
+                <a asp-action="ResumenCuenta" asp-controller="Cuentas">Volver al resumen de cuenta</a>
+                <a asp-action="HistorialMovimientos" style="margin-left: 25px;">Ver todo</a>
+            </div>
+        </td>
+    </tr>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                @*                <th>
+            N° de Cuenta
+            </th>*@
+                <th>
+                    Fecha
+                </th>
+                <th>
+                    Monto
+                </th>
+                <th>
+                    Tipo
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movimiento in ViewBag.SelectedMovimientos)
+            {
+                <tr>
+                    @*                    <td>
+            @ViewBag.SelectedCuenta.Numero
+            </td>*@
+                    <td>
+                        @movimiento.Fecha
+                    </td>
+                    <td>
+                        @movimiento.Monto.ToString("C")
+                    </td>
+                    <td>
+                        @movimiento.Tipo
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@movimiento.Id" asp-route-cuenta="@ViewBag.SelectedCuenta.Id">Detalles </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <p>No se encontraron movimientos.</p>
+}
+
+
+<a asp-action="PrintPDF" asp-controller="Movimiento" asp-route-idCuenta="@ViewBag.SelectedCuenta.Id" class="btn btn-primary">Descargar PDF</a>

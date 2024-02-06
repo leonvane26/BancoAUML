@@ -1,0 +1,75 @@
+﻿@model BANCO.Models.Movimiento
+
+@{
+    ViewData["Title"] = "Detalles del movimiento";
+}
+
+<h1>Detalles de movimiento</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+         
+        <dt class = "col-sm-2">
+            N° de Cuenta:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdCuentaOrigen)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Concepto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Concepto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+        @if (Model.Tipo == Tipo_Movimiento.Pago)
+        {
+        <dt class = "col-sm-2">
+
+            @Html.DisplayNameFor(model => model.TipoServicio)
+        </dt>
+        <dd class="col-sm-10">
+           
+                @Html.DisplayFor(model => model.TipoServicio)
+        </dd>
+        }
+        else
+        {
+            <p></p>
+        }
+    </dl>
+    <hr>
+    <div>
+        <ul>
+            <li>
+                <a asp-action="MovimientosPorCuenta" asp-route-idCuenta="@Model.IdCuenta">Volver a los movimiento de cuenta</a>
+            </li>
+            <li>
+                <a asp-action="HistorialMovimientos">Ver Historial completo</a>
+            </li>
+            <li>
+                <a asp-action="ResumenCuenta" asp-controller="Cuentas">Regresar a Inicio</a>
+            </li>
+        </ul>
+    </div>
+   
+        
+</div>

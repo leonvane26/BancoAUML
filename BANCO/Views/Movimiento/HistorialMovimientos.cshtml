@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BANCO.Models.Movimiento>
+
+<h2>Historial de movimientos</h2>
+    <br>
+<div>
+    <partial name="_ControlFiltros" />
+
+</div>
+    <br>
+
+<a asp-action="ResumenCuenta" asp-controller="Cuentas" class="btn btn-primary">Volver al resumen de cuenta</a>
+<br >
+@if (Model != null && Model.Any())
+{
+    <br/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+
+                   N° de Cuenta @*@Html.DisplayNameFor(model => model.IdCuentaOrigen)*@
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fecha)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Monto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipo)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdCuentaOrigen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Monto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo)
+                    </td>
+                    <td> 
+                        <a asp-action="Details" asp-route-id="@item.Id" asp-route-cuenta="@item.IdCuentaOrigen">Detalles</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    
+}
+else
+{
+    <p>No se encontraron movimientos.</p>
+}
+
+
